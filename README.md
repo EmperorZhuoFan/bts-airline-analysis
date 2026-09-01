@@ -1,13 +1,19 @@
 # U.S. Airline Performance Analysis (BTS Data)
 
-An exploratory data analysis of U.S. airline flights based on the
+An end-to-end analysis of U.S. airline flights based on the
 **Reporting Carrier On-Time Performance** dataset published by the
 [U.S. Bureau of Transportation Statistics (BTS)](https://www.transtats.bts.gov).
 
 The project investigates flight delays, cancellations, and route-level
-performance, and includes an interactive Power BI dashboard.
+performance — and builds the feature-engineered foundation for
+**delay-prediction models**. It includes an interactive Power BI dashboard.
 
-## What the analysis covers
+> **Context:** this is one of the case studies in my path toward becoming a
+> **Machine Learning Engineer** — a strong data foundation first, then
+> modeling, MLOps, and deep learning. Full portfolio:
+> [emperorzhuofan.github.io](https://emperorzhuofan.github.io)
+
+## What the pipeline covers
 
 - **Data understanding** — shape, dtypes, summary statistics, missing-value
   report, and duplicate detection
@@ -20,9 +26,9 @@ performance, and includes an interactive Power BI dashboard.
   metrics, and origin-destination route labels
 - **Exploratory data analysis** — delay baselines and distributions using
   pandas, matplotlib, and seaborn
-- **Modeling toolkit** — scikit-learn classifiers and regressors (decision
-  trees, random forests, gradient boosting, AdaBoost, bagging) prepared for
-  delay prediction experiments
+- **Modeling toolkit** — scikit-learn estimators wired up for delay
+  prediction experiments: decision trees, random forests, gradient boosting,
+  AdaBoost, and bagging (classification + regression)
 
 ## Project structure
 
@@ -34,6 +40,14 @@ performance, and includes an interactive Power BI dashboard.
 │   └── AIRLINE_BTS.csv   # Flight dataset (not included, see below)
 ├── requirements.txt      # Python dependencies
 └── README.md
+```
+
+As the project grows into the modeling phase, the structure will extend to:
+
+```
+models/                   # Trained model artifacts + experiment tracking
+notebooks/                # Experimentation notebooks
+src/                      # Modular pipeline code for deployment
 ```
 
 ## Getting the dataset
@@ -58,6 +72,13 @@ python airline_bts.py
 Open `BTS_Dashboard.pbix` in
 [Power BI Desktop](https://powerbi.microsoft.com/desktop/). If the dashboard
 prompts for a data source, point it to your local copy of `AIRLINE_BTS.csv`.
+
+## Next steps (ML phase)
+
+- [ ] Delay prediction — classification of `ARR_DEL15` using tree ensembles
+- [ ] Hyperparameter tuning with `GridSearchCV` / `RandomizedSearchCV`
+- [ ] Experiment tracking with MLflow and data versioning with DVC
+- [ ] Containerized, reproducible pipeline (Docker + CI/CD)
 
 ## Data source
 
