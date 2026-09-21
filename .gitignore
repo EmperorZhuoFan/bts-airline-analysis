@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# Local dataset
+AIRLINE_BTS.csv
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
