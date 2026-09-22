@@ -5,10 +5,7 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import silhouette_score
 
-from airline.data.loading import load_data
 
-file_path = r"F:\October Plan Phases 1-7\__Projects__\U.S. Bureau of Transportation Statistics\U.S. Bureau of Transportation poject\AIRLINE_BTS.csv"
-df = load_data(file_path=file_path)
 
 def prepare_unsupervised_data(df: pd.DataFrame) -> pd.DataFrame:
     """Prepare airport-level operational features for unsupervised learning."""

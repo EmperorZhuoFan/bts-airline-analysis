@@ -43,7 +43,7 @@ from airline.models.evaluation import run_evaluation
 def main() -> None:
     """Orchestrate the complete Airline BTS data science and machine learning workflow."""
 
-    file_path = r"F:\October Plan Phases 1-7\__Projects__\U.S. Bureau of Transportation Statistics\U.S. Bureau of Transportation poject\AIRLINE_BTS.csv"
+    file_path = r"F:\October Plan Phases 1-7\__Projects__\U.S. Bureau of Transportation Statistics\U.S. Bureau of Transportation poject\data\raw\AIRLINE_BTS.csv"
 
     # ============================================================
     # 1. LOAD
