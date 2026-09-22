@@ -216,6 +216,8 @@ def main() -> None:
     processed_path = Path("data/processed/airline_processed.csv")
     save_processed_data(df, processed_path)
 
+    evaluation_results.to_csv("reports/ml_model_performance.csv", index=False)
+
 
 if __name__ == "__main__":
     main()
