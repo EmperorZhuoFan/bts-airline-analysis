@@ -15,3 +15,12 @@ env/
 
 # Processed dataset
 data/processed/airline_processed.csv
+
+# Local datasets
+AIRLINE_BTS.csv
+data/raw/AIRLINE_BTS.csv
+data/processed/airline_processed.csv
+
+# Generated ML outputs
+reports/ml_model_performance.csv
+reports/airport_cluster_results.csv

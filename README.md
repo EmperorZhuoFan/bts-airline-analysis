@@ -359,6 +359,37 @@ K-Means clustering is evaluated using:
 The numerical score is interpreted together with the actual characteristics of each cluster.
 
 ---
+## Power BI Dashboard
+
+The project includes an interactive Power BI dashboard designed to present
+operational performance, delay patterns, cancellation behavior, and machine
+learning results.
+
+### Dashboard Pages
+
+1. **Executive Overview**
+   - Flight volume
+   - Delay, cancellation, and diversion rates
+   - Operational performance by day
+
+2. **Delays & Cancellations**
+   - Delay severity
+   - Cancellation patterns
+   - Delay rate by time of day
+   - Airport operational exposure
+
+3. **Machine Learning & Airport Segmentation**
+   - Supervised model performance
+   - Model comparison
+   - Airport cluster distribution
+   - Airport cluster profiles
+
+### Power BI File
+
+The Power BI dashboard file is available locally as:
+
+`reports/airline_bts_dashboard.pbix`
+---
 
 # Project Structure
 
