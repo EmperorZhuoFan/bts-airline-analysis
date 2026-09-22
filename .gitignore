@@ -12,3 +12,6 @@ env/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Processed dataset
+data/processed/airline_processed.csv

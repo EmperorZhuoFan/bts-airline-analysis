@@ -1,4 +1,6 @@
-from airline.data.loading import load_data
+from pathlib import Path
+
+from airline.data.loading import load_data, save_processed_data
 
 from airline.data.validation import (
     validate_required_columns,
@@ -210,6 +212,9 @@ def main() -> None:
     print(f"Final columns:   {final_column_count}")
     print(f"Columns added:   {final_column_count - initial_column_count}")
     print("=" * 70)
+
+    processed_path = Path("data/processed/airline_processed.csv")
+    save_processed_data(df, processed_path)
 
 
 if __name__ == "__main__":

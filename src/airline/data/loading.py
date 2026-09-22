@@ -40,3 +40,18 @@ def load_data(file_path: str | Path) -> pd.DataFrame:
     print("=" * 70)
 
     return df
+
+def save_processed_data(df: pd.DataFrame, output_path: str | Path) -> Path:
+    """Save the processed DataFrame as a CSV file."""
+
+    path = Path(output_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    df.to_csv(path, index=False)
+
+    print("=" * 70)
+    print(f"Processed dataset saved: {path}")
+    print(f"Rows: {df.shape[0]:,} | Columns: {df.shape[1]}")
+    print("=" * 70)
+
+    return path
