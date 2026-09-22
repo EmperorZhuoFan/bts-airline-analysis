@@ -1,4 +1,5 @@
 from pathlib import Path
+import pandas as pd
 
 from airline.data.loading import load_data, save_processed_data
 
@@ -217,6 +218,22 @@ def main() -> None:
     save_processed_data(df, processed_path)
 
     evaluation_results.to_csv("reports/ml_model_performance.csv", index=False)
+
+    # Export airport clustering results for Power BI
+    airport_cluster_results = pd.DataFrame({
+        "ORIGIN": scaled_data.index,
+        "Cluster": kmeans.labels_
+    })
+
+    airport_cluster_results.to_csv(
+        "reports/airport_cluster_results.csv",
+        index=False
+    )
+
+    print("=" * 70)
+    print("Airport clustering results exported for Power BI")
+    print(f"Rows: {airport_cluster_results.shape[0]:,}")
+    print("=" * 70)
 
 
 if __name__ == "__main__":
