@@ -688,7 +688,7 @@ The project is structured as a complete software and data-science system rather 
 
 # Author
 
-**Ahmed Magdy**
+**Omar Mostafa**
 
 Computer Science Student | Aspiring Machine Learning Engineer
 
