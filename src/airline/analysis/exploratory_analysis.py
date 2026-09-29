@@ -126,7 +126,6 @@ def analyze_cancellations(df: pd.DataFrame) -> None:
     cancellation_frequency.index = cancellation_frequency.index.map({0.0: "Not Cancelled", 1.0: "Cancelled"})
 
     cancellation_reasons = df.loc[df["CANCELLATION_REASON"] != "Not Cancelled", "CANCELLATION_REASON"].value_counts()
-    cancellation_status = df["CANCELLED"].map({0.0: "Not Cancelled", 1.0: "Cancelled"})
 
     cancellation_pattern = df.groupby("DAY_OF_WEEK")["CANCELLED"].value_counts().unstack(fill_value=0)
     cancellation_pattern.columns = cancellation_pattern.columns.map({0.0: "Not Cancelled", 1.0: "Cancelled"})
