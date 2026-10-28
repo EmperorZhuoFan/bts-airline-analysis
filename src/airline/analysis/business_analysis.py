@@ -1,5 +1,5 @@
 import pandas as pd 
-from airline.data.preparation import handle_missing_values 
+from ..data.preparation import handle_missing_values
 
 
 def analyze_operational_reliability(df: pd.DataFrame) -> None:

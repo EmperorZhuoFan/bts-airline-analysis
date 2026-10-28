@@ -1,0 +1,8 @@
+Model,Mean F1
+Logistic regression,0.48988280826663205
+Bagging model,0.4482147371059651
+Decision tree,0.4428454761689012
+Gradient boosting,0.41158460802084756
+AdaBoosting,0.31487351924334744
+Random forest,0.004839190741083092
+Baseline model,0.0

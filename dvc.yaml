@@ -1,0 +1,11 @@
+stages:
+  airline_pipeline:
+    cmd: python main.py data/raw/AIRLINE_BTS_March.csv
+    deps:
+      - main.py
+      - src/airline
+      - data/raw/AIRLINE_BTS_March.csv
+    outs:
+      - data/processed/AIRLINE_BTS_March_Processed.csv
+      - reports/ml_model_performance.csv
+      - reports/airport_cluster_results.csv

@@ -24,3 +24,17 @@ data/processed/airline_processed.csv
 # Generated ML outputs
 reports/ml_model_performance.csv
 reports/airport_cluster_results.csv
+
+# Python test and build artifacts
+.pytest_cache/
+*.egg-info/
+
+# Local MLflow artifacts
+mlruns/
+mlflow.db
+
+# Generated processed data
+data/processed/
+
+# Local environment files
+.env

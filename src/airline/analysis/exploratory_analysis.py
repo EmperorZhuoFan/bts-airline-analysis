@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt 
 import seaborn as sns 
-from airline.data.preparation import *
+from ..data.preparation import *
 
 plt.style.use("Solarize_Light2")
 

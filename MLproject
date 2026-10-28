@@ -1,0 +1,10 @@
+name: airline-bts-ml-system
+
+entry_points:
+  main:
+    parameters:
+      input_csv: path
+    command: "python main.py {input_csv}"
+
+  validate:
+    command: "python -c 'print(123)'"

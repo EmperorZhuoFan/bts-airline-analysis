@@ -1,3 +1,4 @@
+import argparse
 from pathlib import Path
 import pandas as pd
 
@@ -43,10 +44,11 @@ from airline.models.unsupervised import run_unsupervised_learning
 from airline.models.evaluation import run_evaluation
 
 
-def main() -> None:
+def main(file_path: Path | str | None = None) -> None:
     """Orchestrate the complete Airline BTS data science and machine learning workflow."""
 
-    file_path = r"F:\October Plan Phases 1-7\__Projects__\U.S. Bureau of Transportation Statistics\U.S. Bureau of Transportation poject\data\raw\AIRLINE_BTS.csv"
+    if file_path is None:
+        file_path = Path(__file__).resolve().parent / "data" / "raw" / "AIRLINE_BTS_March.csv"
 
     # ============================================================
     # 1. LOAD
@@ -60,44 +62,8 @@ def main() -> None:
     # 2. VALIDATION
     # ============================================================
 
-    required_columns = [
-        "YEAR",
-        "QUARTER",
-        "MONTH",
-        "DAY_OF_WEEK",
-        "FL_DATE",
-        "OP_UNIQUE_CARRIER",
-        "TAIL_NUM",
-        "ORIGIN",
-        "ORIGIN_CITY_NAME",
-        "ORIGIN_STATE_ABR",
-        "DEST",
-        "DEST_CITY_NAME",
-        "DEST_STATE_ABR",
-        "CRS_DEP_TIME",
-        "DEP_TIME",
-        "DEP_DELAY",
-        "DEP_DELAY_NEW",
-        "TAXI_OUT",
-        "TAXI_IN",
-        "CRS_ARR_TIME",
-        "ARR_TIME",
-        "ARR_DELAY",
-        "ARR_DELAY_NEW",
-        "ARR_DEL15",
-        "CANCELLED",
-        "CANCELLATION_CODE",
-        "DIVERTED",
-        "ACTUAL_ELAPSED_TIME",
-        "AIR_TIME",
-        "DISTANCE",
-        "CARRIER_DELAY",
-        "NAS_DELAY",
-        "SECURITY_DELAY",
-        "LATE_AIRCRAFT_DELAY"
-    ]
-
-    validate_required_columns(df, required_columns)
+    validate_required_columns(df)
+    validate_data_types(df)
 
     missing_report = validate_missing_values(df)
 
@@ -123,37 +89,37 @@ def main() -> None:
     # 5. EXPLORATORY ANALYSIS
     # ============================================================
 
-    analyze_flight_volume(df)
+    # analyze_flight_volume(df)
 
-    analyze_delays(df)
+    # analyze_delays(df)
 
-    analyze_cancellations(df)
+    # analyze_cancellations(df)
 
-    analyze_airplorts(df)
+    # analyze_airplorts(df)
 
     # ============================================================
     # 6. STATISTICAL ANALYSIS
     # ============================================================
 
-    summarize_delay_statistical(df)
+    # summarize_delay_statistical(df)
 
-    test_delay_difference(df)
+    # test_delay_difference(df)
 
-    test_delay_by_day_of_week(df)
+    # test_delay_by_day_of_week(df)
 
-    analyze_delay_correlations(df)
+    # analyze_delay_correlations(df)
 
     # ============================================================
     # 7. BUSINESS ANALYSIS
     # ============================================================
 
-    analyze_operational_reliability(df)
+    # analyze_operational_reliability(df)
 
-    analyze_delay_propagation(df)
+    # analyze_delay_propagation(df)
 
-    analyze_operational_exposure(df)
+    # analyze_operational_exposure(df)
 
-    analyze_cancellation_exposure(df)
+    # analyze_cancellation_exposure(df)
 
     # ============================================================
     # 8. SUPERVISED LEARNING
@@ -237,4 +203,12 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Run the BTS airline analysis workflow.")
+    parser.add_argument(
+        "input_csv",
+        nargs="?",
+        type=Path,
+        default=Path(__file__).resolve().parent / "data" / "raw" / "AIRLINE_BTS_March.csv",
+        help="Path to the BTS CSV file (defaults to data/raw/AIRLINE_BTS_March.csv).",
+    )
+    main(parser.parse_args().input_csv)

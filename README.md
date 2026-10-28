@@ -488,6 +488,35 @@ The source code is organized according to responsibility.
 
 This separation keeps individual components testable, reusable, and easier to maintain.
 
+## Running the workflow
+
+Install the project from the repository root so Python can resolve the `airline` package:
+
+```powershell
+python -m pip install -e .
+```
+
+Run the workflow with the default March dataset:
+
+```powershell
+python main.py
+```
+
+Pass another BTS CSV path (for example, the April dataset) as the first argument:
+
+```powershell
+python main.py data/raw/AIRLINE_BTS_April.csv
+```
+
+MLflow stores runs in the local `mlflow.db` file in the repository root. Start the UI
+from that same root directory in a separate terminal:
+
+```powershell
+mlflow ui --backend-store-uri "sqlite:///mlflow.db"
+```
+
+Then open `http://127.0.0.1:5000` and select the **BTS Airline ML** experiment.
+
 ---
 
 # Technology Stack
