@@ -1,4 +1,3 @@
-
 """MLflow tracking for supervised models in the BTS airline project."""
 
 from __future__ import annotations
