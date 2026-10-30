@@ -1,9 +1,7 @@
 # Python
 __pycache__/
-*.pyc
-
-# Local dataset
-AIRLINE_BTS.csv
+*.py[cod]
+*.egg-info/
 
 # Virtual environments
 .venv/
@@ -13,28 +11,21 @@ env/
 # Jupyter
 .ipynb_checkpoints/
 
-# Processed dataset
-data/processed/airline_processed.csv
-
-# Local datasets
+# Datasets and processed data
+data/raw/
+data/processed/
 AIRLINE_BTS.csv
-data/raw/AIRLINE_BTS.csv
-data/processed/airline_processed.csv
 
-# Generated ML outputs
+# Generated reports
 reports/ml_model_performance.csv
 reports/airport_cluster_results.csv
 
-# Python test and build artifacts
-.pytest_cache/
-*.egg-info/
-
-# Local MLflow artifacts
+# MLflow
 mlruns/
 mlflow.db
 
-# Generated processed data
-data/processed/
-
-# Local environment files
+# Environment variables
 .env
+
+# Testing
+.pytest_cache/
